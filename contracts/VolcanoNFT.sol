@@ -21,4 +21,8 @@ contract VolcanoNFT is ERC721, Ownable {
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
     }
+
+    function safeTransfer(address from, address to, uint256 tokenId) public {
+        _safeTransfer(from, to, tokenId, "");
+    }
 }
