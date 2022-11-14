@@ -25,6 +25,15 @@ contract VolcanoNFT is ERC721URIStorage, Ownable {
         return tokenId;
     }
 
+    function mintNFTpublic(address to, string memory tokenURI) public payable returns (uint256) {
+        uint256 tokenId = _tokenIdCounter.current();
+        _tokenIdCounter.increment();
+        _safeMint(to, tokenId);
+        _setTokenURI(tokenId, tokenURI);
+
+        return tokenId;
+    }
+
     function transferNFT(address from, address to, uint256 tokenId) public {
         _safeTransfer(from, to, tokenId, "");
     }
