@@ -25,7 +25,7 @@ contract VolcanoNFT is ERC721URIStorage, Ownable {
 
     function mintNFTpublic(address to, string memory tokenURI) public payable {
         require(
-            msg.value >= 10000000000000000,
+            msg.value >= .01 ether,
             "The transfer amount must be more than 0.01 ETH."
         );
         payable(owner()).transfer(msg.value);
